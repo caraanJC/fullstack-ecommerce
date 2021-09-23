@@ -1,0 +1,17 @@
+.login {
+  max-width: 100%;
+}
+
+.login__button {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.login__suggestion a {
+  text-decoration: none;
+  color: var(--main-color);
+}

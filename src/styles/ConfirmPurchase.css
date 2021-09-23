@@ -1,0 +1,9 @@
+.confirmPurchase__total {
+  display: flex;
+  align-items: baseline;
+  font-size: 25px;
+}
+
+.confirmPurchase__total h3 {
+  margin-right: 5px;
+}

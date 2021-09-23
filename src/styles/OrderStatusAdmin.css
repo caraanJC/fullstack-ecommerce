@@ -1,0 +1,42 @@
+.orderStatusAdmin__wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 5px;
+  grid-gap: 30px;
+}
+
+.orderStatusAdmin__order {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 5px;
+}
+
+.orderStatusAdmin__details {
+  margin-bottom: 10px;
+}
+
+.orderStatusAdmin__label {
+  color: var(--main-color);
+}
+
+.orderStatusAdmin__statusControlBtns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.orderStatusAdmin__statusControlBtns button {
+  margin-right: 5px;
+}
+
+.orderStatusAdmin__item {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .orderStatusAdmin__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}

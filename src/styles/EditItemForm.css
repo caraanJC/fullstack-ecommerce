@@ -1,0 +1,38 @@
+.editItemForm {
+  width: 100%;
+}
+.editItemForm__title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.editItemForm__name,
+.editItemForm__price,
+.editItemForm__description,
+.editItemForm__priority,
+.editItemForm__image,
+.editItemForm__stock {
+  margin-bottom: 10px;
+}
+.editItemForm__stock {
+  margin-bottom: 15px;
+}
+
+.editItemForm__name label,
+.editItemForm__price label,
+.editItemForm__description label,
+.editItemForm__priority label,
+.editItemForm__image label,
+.editItemForm__stock label {
+  font-size: 20px;
+}
+
+.editItemForm__name input,
+.editItemForm__price input,
+.editItemForm__description textarea,
+.editItemForm__priority input,
+.editItemForm__image input {
+  font-size: 15px;
+  padding: 5px;
+  width: 100%;
+}

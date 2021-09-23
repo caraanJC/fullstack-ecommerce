@@ -1,0 +1,46 @@
+.orderStatusUser {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 50px;
+  margin: 5px;
+}
+
+.orderStatusUser__order {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 5px;
+}
+
+.orderStatusUser__label {
+  color: var(--main-color);
+}
+
+.orderStatusUser__statusControl {
+  display: flex;
+  justify-content: space-between;
+}
+
+.orderStatusUser__address {
+  display: flex;
+}
+
+.orderStatusUser__addressLabel {
+  margin-right: 5px;
+}
+
+.orderStatusUser__orderName {
+  margin-left: 10px;
+}
+@media screen and (min-width: 768px) {
+  .orderStatusUser {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .orderStatusUser {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

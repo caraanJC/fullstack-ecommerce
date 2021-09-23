@@ -1,0 +1,40 @@
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.userInfo__title {
+  display: flex;
+  align-items: center;
+}
+
+.userInfo__title h2 {
+  font-size: 25px;
+  margin-right: 5px;
+}
+
+.userInfo__title button {
+  height: 25px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.userInfo__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.userInfo__label {
+  color: var(--main-color);
+}

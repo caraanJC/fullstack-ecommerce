@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+  --main-color: hsl(357, 50%, 40%);
+  --warning: hsl(49, 50%, 40%);
+  --danger: hsl(0, 50%, 40%);
+  --offwhite: #edeef6;
+  --dark-grey: hsl(0, 0%, 20%);
+  --success: hsl(115, 50%, 40%);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--offwhite);
+}
+
+.button {
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+  opacity: 0.9;
+}
+
+.main-button {
+  background-color: var(--main-color);
+}
+
+.warning-button {
+  background-color: var(--warning);
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.danger-button {
+  background-color: var(--danger);
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.success-button {
+  background-color: var(--success);
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.normal-button {
+  background-color: var(--dark-grey);
+  padding: 5px 10px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+.warning {
+  background-color: var(--warning);
+}
+
+.success {
+  background-color: var(--success);
+}
+
+.button.button__unable {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    padding: 10px 25px;
+  }
+}

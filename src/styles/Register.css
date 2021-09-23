@@ -1,0 +1,12 @@
+.register {
+  max-width: 100%;
+}
+
+.register__button {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 15px;
+  width: 100%;
+}

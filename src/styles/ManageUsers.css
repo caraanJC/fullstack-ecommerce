@@ -1,0 +1,16 @@
+.manageUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 95%;
+}
+
+.manageUsers__title {
+  font-size: 25px;
+}
+
+.manageUsers__filter * {
+  font-size: 15px;
+  padding: 5px;
+}

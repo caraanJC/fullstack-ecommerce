@@ -1,0 +1,15 @@
+.displayUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.displayUsers__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid var(--dark-grey);
+  margin-bottom: 10px;
+}
