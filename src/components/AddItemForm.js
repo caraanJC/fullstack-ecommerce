@@ -42,18 +42,23 @@ const AddItemForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8080/api/items/addItem', {
-        ...newItem,
-        category: newItem.category ? newItem.category : newItem.newCategory,
-      })
+      .post(
+        'https://fullstack-ecommerce-back.herokuapp.com/api/items/addItem',
+        {
+          ...newItem,
+          category: newItem.category ? newItem.category : newItem.newCategory,
+        }
+      )
       .then((res) => {
         notify(popup, setupPopup, `${newItem.name} has been added`, 'success');
 
         setNewItem(initialState);
-        axios.get('http://localhost:8080/api/items').then((res) => {
-          setItems(res.data);
-          props.setShowAddForm(false);
-        });
+        axios
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items')
+          .then((res) => {
+            setItems(res.data);
+            props.setShowAddForm(false);
+          });
       });
   };
 

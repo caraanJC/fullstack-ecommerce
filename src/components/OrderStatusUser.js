@@ -15,7 +15,9 @@ const OrderStatusUser = (props) => {
 
   const handleCancelOrder = (order) => {
     axios
-      .get(`http://localhost:8080/api/users/${currentUser._id}`)
+      .get(
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+      )
       .then((res) => {
         if (
           res.data.orders?.find((userOrder) => userOrder._id === order._id)
@@ -23,14 +25,16 @@ const OrderStatusUser = (props) => {
         ) {
           axios
             .put(
-              `http://localhost:8080/api/users/${order.userID}/cancelOrder`,
+              `https://fullstack-ecommerce-back.herokuapp.com/api/users/${order.userID}/cancelOrder`,
               {
                 _id: order._id,
               }
             )
             .then((res) => {
               axios
-                .get(`http://localhost:8080/api/users/${currentUser._id}`)
+                .get(
+                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+                )
                 .then((res) => {
                   let resData = res.data;
                   delete resData.password;
@@ -52,7 +56,9 @@ const OrderStatusUser = (props) => {
             'danger'
           );
           axios
-            .get(`http://localhost:8080/api/users/${currentUser._id}`)
+            .get(
+              `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+            )
             .then((res) => {
               let resData = res.data;
               delete resData.password;

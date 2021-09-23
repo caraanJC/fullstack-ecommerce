@@ -38,9 +38,11 @@ function App() {
       currentUser.roles?.includes('manager') ||
       currentUser.roles?.includes('admin')
     ) {
-      axios.get('http://localhost:8080/api/users/').then((res) => {
-        setUsers(res.data);
-      });
+      axios
+        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/')
+        .then((res) => {
+          setUsers(res.data);
+        });
     }
     if (
       Object.keys(currentUser).length > 0 &&
@@ -67,9 +69,11 @@ function App() {
     // eslint-disable-next-line
   }, [currentUser]);
   useEffect(() => {
-    axios.get('http://localhost:8080/api/items').then((res) => {
-      setItems(res.data);
-    });
+    axios
+      .get('https://fullstack-ecommerce-back.herokuapp.com/api/items')
+      .then((res) => {
+        setItems(res.data);
+      });
 
     // eslint-disable-next-line
   }, []);

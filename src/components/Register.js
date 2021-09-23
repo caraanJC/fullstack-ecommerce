@@ -32,7 +32,10 @@ const Register = (props) => {
       alert("Password don't match");
     } else {
       axios
-        .post('http://localhost:8080/api/users/register', newUser)
+        .post(
+          'https://fullstack-ecommerce-back.herokuapp.com/api/users/register',
+          newUser
+        )
         .then((res) => {
           if (!res.data.error) {
             alert(res.data.message);

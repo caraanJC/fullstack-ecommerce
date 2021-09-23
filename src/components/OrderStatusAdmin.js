@@ -17,26 +17,36 @@ const OrderStatusAdmin = (props) => {
   const handleChangeStatus = (order, status) => {
     // order.userID, order._id, status
     axios
-      .put(`http://localhost:8080/api/users/${order.userID}/editOrder`, {
-        _id: order._id,
-        status,
-      })
+      .put(
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${order.userID}/editOrder`,
+        {
+          _id: order._id,
+          status,
+        }
+      )
       .then((res) => {
-        axios.get('http://localhost:8080/api/users').then((res) => {
-          setUsers(res.data);
-        });
+        axios
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/users')
+          .then((res) => {
+            setUsers(res.data);
+          });
       });
   };
 
   const handleCancelOrder = (order) => {
     axios
-      .put(`http://localhost:8080/api/users/${order.userID}/cancelOrder`, {
-        _id: order._id,
-      })
+      .put(
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${order.userID}/cancelOrder`,
+        {
+          _id: order._id,
+        }
+      )
       .then((res) => {
-        axios.get('http://localhost:8080/api/users').then((res) => {
-          setUsers(res.data);
-        });
+        axios
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/users')
+          .then((res) => {
+            setUsers(res.data);
+          });
       });
   };
 

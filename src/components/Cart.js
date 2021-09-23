@@ -27,13 +27,18 @@ const Cart = () => {
 
   const handlePlusBtnClick = (itemID) => {
     axios
-      .put(`http://localhost:8080/api/users/${currentUser._id}/increaseCount`, {
-        _id: itemID,
-        count: 1,
-      })
+      .put(
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/increaseCount`,
+        {
+          _id: itemID,
+          count: 1,
+        }
+      )
       .then((res) =>
         axios
-          .get(`http://localhost:8080/api/users/${currentUser._id}`)
+          .get(
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+          )
           .then((res) => {
             let resData = res.data;
             delete resData.__v;
@@ -45,13 +50,18 @@ const Cart = () => {
 
   const handleMinusBtnClick = (itemID) => {
     axios
-      .put(`http://localhost:8080/api/users/${currentUser._id}/increaseCount`, {
-        _id: itemID,
-        count: -1,
-      })
+      .put(
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/increaseCount`,
+        {
+          _id: itemID,
+          count: -1,
+        }
+      )
       .then((res) =>
         axios
-          .get(`http://localhost:8080/api/users/${currentUser._id}`)
+          .get(
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+          )
           .then((res) => {
             let resData = res.data;
             delete resData.__v;
@@ -62,7 +72,7 @@ const Cart = () => {
 
             if (zeroItem) {
               axios.put(
-                `http://localhost:8080/api/users/${currentUser._id}/deleteCartItem`,
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/deleteCartItem`,
                 {
                   _id: itemID,
                 }
@@ -79,12 +89,14 @@ const Cart = () => {
   const handleDeleteBtnClick = (itemID) => {
     axios
       .put(
-        `http://localhost:8080/api/users/${currentUser._id}/deleteCartItem`,
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/deleteCartItem`,
         { _id: itemID }
       )
       .then((res) => {
         axios
-          .get(`http://localhost:8080/api/users/${currentUser._id}`)
+          .get(
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+          )
           .then((res) => {
             let resData = res.data;
             delete resData.password;
@@ -124,7 +136,7 @@ const Cart = () => {
           return cartItem;
         } else {
           axios.put(
-            `http://localhost:8080/api/users/${currentUser._id}/deleteCartItem`,
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/deleteCartItem`,
             { _id: cartItem._id }
           );
 

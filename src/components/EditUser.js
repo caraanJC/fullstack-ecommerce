@@ -22,20 +22,27 @@ const EditUser = () => {
     const result = confirm(`Suspend user ${user.username}?`);
     if (result) {
       axios
-        .put(`http://localhost:8080/api/users/${user._id}/suspend`, {
-          role: 'suspended',
-        })
+        .put(
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/suspend`,
+          {
+            role: 'suspended',
+          }
+        )
         .then((res) => {
           alert(res.data.message);
 
-          axios.get('http://localhost:8080/api/users').then((res) => {
-            setUsers(res.data);
-            axios
-              .get(`http://localhost:8080/api/users/${user._id}`)
-              .then((res) => {
-                setUserToEdit(res.data);
-              });
-          });
+          axios
+            .get('https://fullstack-ecommerce-back.herokuapp.com/api/users')
+            .then((res) => {
+              setUsers(res.data);
+              axios
+                .get(
+                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`
+                )
+                .then((res) => {
+                  setUserToEdit(res.data);
+                });
+            });
         });
     } else {
       console.log('Suspension aborted');
@@ -47,20 +54,27 @@ const EditUser = () => {
     const result = confirm(`Lift user ${user.username}'s suspension?`);
     if (result) {
       axios
-        .put(`http://localhost:8080/api/users/${user._id}/lift`, {
-          role: 'suspended',
-        })
+        .put(
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/lift`,
+          {
+            role: 'suspended',
+          }
+        )
         .then((res) => {
           alert(res.data.message);
 
-          axios.get('http://localhost:8080/api/users').then((res) => {
-            setUsers(res.data);
-            axios
-              .get(`http://localhost:8080/api/users/${user._id}`)
-              .then((res) => {
-                setUserToEdit(res.data);
-              });
-          });
+          axios
+            .get('https://fullstack-ecommerce-back.herokuapp.com/api/users')
+            .then((res) => {
+              setUsers(res.data);
+              axios
+                .get(
+                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`
+                )
+                .then((res) => {
+                  setUserToEdit(res.data);
+                });
+            });
         });
     } else {
       console.log('Lifting of Suspension aborted');
@@ -72,13 +86,17 @@ const EditUser = () => {
     const result = confirm(`Delete user ${user.username} from the database?`);
     if (result) {
       axios
-        .delete(`http://localhost:8080/api/users/${user._id}`)
+        .delete(
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`
+        )
         .then((res) => {
           alert(res.data.message);
-          axios.get('http://localhost:8080/api/users').then((res) => {
-            setUsers(res.data);
-            clearUserToEdit();
-          });
+          axios
+            .get('https://fullstack-ecommerce-back.herokuapp.com/api/users')
+            .then((res) => {
+              setUsers(res.data);
+              clearUserToEdit();
+            });
         });
     } else {
       console.log('Delete Aborted');

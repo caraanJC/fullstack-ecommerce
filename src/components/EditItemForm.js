@@ -37,7 +37,10 @@ const EditItemForm = () => {
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .put('http://localhost:8080/api/items/editItem', updatedItem)
+      .put(
+        'https://fullstack-ecommerce-back.herokuapp.com/api/items/editItem',
+        updatedItem
+      )
       .then((res) => {
         notify(
           popup,
@@ -45,11 +48,13 @@ const EditItemForm = () => {
           `${itemToEdit.name} has been updated`,
           'success'
         );
-        axios.get('http://localhost:8080/api/items/').then((res) => {
-          setItems(res.data);
+        axios
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items/')
+          .then((res) => {
+            setItems(res.data);
 
-          setItemToEdit({});
-        });
+            setItemToEdit({});
+          });
       });
   };
 

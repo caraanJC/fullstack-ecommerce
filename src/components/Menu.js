@@ -27,11 +27,15 @@ const Menu = () => {
   const handleDeleteBtnClick = (item) => {
     notify(popup, setupPopup, `${item.name} has been deleted`, 'success');
     axios
-      .delete(`http://localhost:8080/api/items/deleteItem/${item._id}`)
+      .delete(
+        `https://fullstack-ecommerce-back.herokuapp.com/api/items/deleteItem/${item._id}`
+      )
       .then((res) => {
-        axios.get('http://localhost:8080/api/items').then((res) => {
-          setItems(res.data);
-        });
+        axios
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items')
+          .then((res) => {
+            setItems(res.data);
+          });
       });
   };
 
@@ -47,7 +51,7 @@ const Menu = () => {
         // increase count only
         axios
           .put(
-            `http://localhost:8080/api/users/${currentUser._id}/increaseCount`,
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/increaseCount`,
             {
               _id: item._id,
               count: 1,
@@ -55,7 +59,9 @@ const Menu = () => {
           )
           .then((res) => {
             axios
-              .get(`http://localhost:8080/api/users/${currentUser._id}`)
+              .get(
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+              )
               .then((res) => {
                 let resData = res.data;
                 delete resData.password;
@@ -66,13 +72,18 @@ const Menu = () => {
       } else {
         // add to cart
         axios
-          .put(`http://localhost:8080/api/users/${currentUser._id}/addToCart`, {
-            _id: item._id,
-            count: 1,
-          })
+          .put(
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/addToCart`,
+            {
+              _id: item._id,
+              count: 1,
+            }
+          )
           .then((res) => {
             axios
-              .get(`http://localhost:8080/api/users/${currentUser._id}`)
+              .get(
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+              )
               .then((res) => {
                 login(res.data);
               });

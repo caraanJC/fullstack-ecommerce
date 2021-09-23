@@ -38,7 +38,10 @@ const Login = (props) => {
   const handleSubmitBtnClick = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8080/api/users/login', userLogin)
+      .post(
+        'https://fullstack-ecommerce-back.herokuapp.com/api/users/login',
+        userLogin
+      )
       .then((res) => {
         if (!res.data.error) {
           let user = res.data.data;

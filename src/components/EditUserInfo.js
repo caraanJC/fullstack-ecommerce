@@ -26,12 +26,14 @@ const EditUserInfo = (props) => {
 
     axios
       .put(
-        `http://localhost:8080/api/users/${currentUser._id}/editProfile`,
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/editProfile`,
         editUser
       )
       .then((res) =>
         axios
-          .get(`http://localhost:8080/api/users/${currentUser._id}`)
+          .get(
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+          )
           .then((res) => {
             login(res.data);
             notify(

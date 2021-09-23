@@ -24,7 +24,9 @@ const Orders = () => {
   const handleRefreshBtnClick = () => {
     if (currentUser.roles?.includes('user')) {
       axios
-        .get(`http://localhost:8080/api/users/${currentUser._id}`)
+        .get(
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+        )
         .then((res) => {
           let resData = res.data;
           delete resData.password;
@@ -36,9 +38,11 @@ const Orders = () => {
       currentUser.roles?.includes('manager') ||
       currentUser.roles?.includes('admin')
     ) {
-      axios.get('http://localhost:8080/api/users/').then((res) => {
-        setUsers(res.data);
-      });
+      axios
+        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/')
+        .then((res) => {
+          setUsers(res.data);
+        });
     }
   };
 
