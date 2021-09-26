@@ -40,7 +40,7 @@ const Login = (props) => {
     try {
       await axios
         .post(
-          'https://fullstack-ecommerce-back.herokuapp.com/api/auth/login',
+          'http://fullstack-ecommerce-back.herokuapp.com/api/auth/login',
           userLogin
         )
         .then((res) => {

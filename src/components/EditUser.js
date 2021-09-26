@@ -23,7 +23,7 @@ const EditUser = () => {
     if (result) {
       axios
         .put(
-          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/suspend`,
+          `http://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/suspend`,
           {
             role: 'suspended',
           },
@@ -35,7 +35,7 @@ const EditUser = () => {
           alert(res.data.message);
 
           axios
-            .get('https://fullstack-ecommerce-back.herokuapp.com/api/users', {
+            .get('http://fullstack-ecommerce-back.herokuapp.com/api/users', {
               headers: {
                 'auth-token': localStorage.getItem('token'),
               },
@@ -44,7 +44,7 @@ const EditUser = () => {
               setUsers(res.data);
               axios
                 .get(
-                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`,
+                  `http://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/getOne`,
                   {
                     headers: {
                       'auth-token': localStorage.getItem('token'),
@@ -67,7 +67,7 @@ const EditUser = () => {
     if (result) {
       axios
         .put(
-          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/lift`,
+          `http://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/lift`,
           {
             role: 'suspended',
           },
@@ -79,7 +79,7 @@ const EditUser = () => {
           alert(res.data.message);
 
           axios
-            .get('https://fullstack-ecommerce-back.herokuapp.com/api/users', {
+            .get('http://fullstack-ecommerce-back.herokuapp.com/api/users', {
               headers: {
                 'auth-token': localStorage.getItem('token'),
               },
@@ -88,7 +88,7 @@ const EditUser = () => {
               setUsers(res.data);
               axios
                 .get(
-                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`,
+                  `http://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}/getOne`,
                   {
                     headers: { 'auth-token': localStorage.getItem('token') },
                   }
@@ -109,7 +109,7 @@ const EditUser = () => {
     if (result) {
       axios
         .delete(
-          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`,
+          `http://fullstack-ecommerce-back.herokuapp.com/api/users/${user._id}`,
           {
             headers: {
               'auth-token': localStorage.getItem('token'),
@@ -119,7 +119,7 @@ const EditUser = () => {
         .then((res) => {
           alert(res.data.message);
           axios
-            .get('https://fullstack-ecommerce-back.herokuapp.com/api/users', {
+            .get('http://fullstack-ecommerce-back.herokuapp.com/api/users', {
               headers: {
                 'auth-token': localStorage.getItem('token'),
               },

@@ -36,7 +36,7 @@ const ConfirmPurchase = (props) => {
       });
       axios
         .put(
-          `https://fullstack-ecommerce-back.herokuapp.com/api/users/profile/changeLastAddress`,
+          `http://fullstack-ecommerce-back.herokuapp.com/api/users/profile/changeLastAddress`,
           {
             lastAddress,
           }
@@ -44,7 +44,7 @@ const ConfirmPurchase = (props) => {
         .then((res) => {
           axios
             .get(
-              `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+              `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
             )
             .then((res) => {
               let resData = res.data;
@@ -56,12 +56,12 @@ const ConfirmPurchase = (props) => {
             .then((res) => {
               axios
                 .put(
-                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/emptyCart`
+                  `http://fullstack-ecommerce-back.herokuapp.com/api/users/cart/emptyCart`
                 )
                 .then((res) => {
                   axios
                     .put(
-                      `https://fullstack-ecommerce-back.herokuapp.com/api/users/order/addOrder`,
+                      `http://fullstack-ecommerce-back.herokuapp.com/api/users/order/addOrder`,
                       {
                         items: completeCartItems,
                         status: 'Pending',
@@ -73,7 +73,7 @@ const ConfirmPurchase = (props) => {
                     .then((res) =>
                       axios
                         .get(
-                          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                          `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
                         )
                         .then((res) => {
                           let resData = res.data;

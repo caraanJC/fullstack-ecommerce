@@ -38,8 +38,13 @@ const EditItemForm = () => {
     e.preventDefault();
     axios
       .put(
-        'https://fullstack-ecommerce-back.herokuapp.com/api/items/editItem',
-        updatedItem
+        'http://fullstack-ecommerce-back.herokuapp.com/api/items/editItem',
+        updatedItem,
+        {
+          headers: {
+            'auth-token': localStorage.getItem('token'),
+          },
+        }
       )
       .then((res) => {
         notify(
@@ -49,7 +54,7 @@ const EditItemForm = () => {
           'success'
         );
         axios
-          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items/')
+          .get('http://fullstack-ecommerce-back.herokuapp.com/api/items/')
           .then((res) => {
             setItems(res.data);
 

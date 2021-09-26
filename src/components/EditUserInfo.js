@@ -20,30 +20,34 @@ const EditUserInfo = (props) => {
 
   const [editUser, setEditUser] = useState(initialState);
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (e) => {
     e.preventDefault();
     props.setEditProfile(false);
 
-    axios
-      .put(
-        `https://fullstack-ecommerce-back.herokuapp.com/api/users/profile/editProfile`,
-        editUser
+    await axios.put(
+      `http://fullstack-ecommerce-back.herokuapp.com/api/users/profile/editProfile`,
+      editUser,
+      {
+        headers: { 'auth-token': localStorage.getItem('token') },
+      }
+    );
+
+    await axios
+      .get(
+        `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+        {
+          headers: { 'auth-token': localStorage.getItem('token') },
+        }
       )
-      .then((res) =>
-        axios
-          .get(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
-          )
-          .then((res) => {
-            login(res.data);
-            notify(
-              popup,
-              setupPopup,
-              `${res.data.username} info was successfully edited.`,
-              'success'
-            );
-          })
-      );
+      .then((res) => {
+        login(res.data);
+        notify(
+          popup,
+          setupPopup,
+          `${res.data.username} info was successfully edited.`,
+          'success'
+        );
+      });
   };
 
   const handleInputChange = (e) => {
