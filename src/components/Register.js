@@ -33,7 +33,7 @@ const Register = (props) => {
     } else {
       axios
         .post(
-          'https://fullstack-ecommerce-back.herokuapp.com/api/users/register',
+          'https://fullstack-ecommerce-back.herokuapp.com/api/auth/register',
           newUser
         )
         .then((res) => {

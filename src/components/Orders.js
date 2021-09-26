@@ -25,7 +25,7 @@ const Orders = () => {
     if (currentUser.roles?.includes('user')) {
       axios
         .get(
-          `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
         )
         .then((res) => {
           let resData = res.data;

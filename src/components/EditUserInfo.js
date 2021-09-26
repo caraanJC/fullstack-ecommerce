@@ -26,13 +26,13 @@ const EditUserInfo = (props) => {
 
     axios
       .put(
-        `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/editProfile`,
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/profile/editProfile`,
         editUser
       )
       .then((res) =>
         axios
           .get(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
           )
           .then((res) => {
             login(res.data);

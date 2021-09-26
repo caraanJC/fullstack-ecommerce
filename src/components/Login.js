@@ -39,7 +39,7 @@ const Login = (props) => {
     e.preventDefault();
     axios
       .post(
-        'https://fullstack-ecommerce-back.herokuapp.com/api/users/login',
+        'https://fullstack-ecommerce-back.herokuapp.com/api/auth/login',
         userLogin
       )
       .then((res) => {

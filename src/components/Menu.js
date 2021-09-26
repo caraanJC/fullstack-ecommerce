@@ -51,7 +51,7 @@ const Menu = () => {
         // increase count only
         axios
           .put(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/increaseCount`,
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/increaseCount`,
             {
               _id: item._id,
               count: 1,
@@ -60,7 +60,7 @@ const Menu = () => {
           .then((res) => {
             axios
               .get(
-                `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
               )
               .then((res) => {
                 let resData = res.data;
@@ -73,7 +73,7 @@ const Menu = () => {
         // add to cart
         axios
           .put(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}/addToCart`,
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/addToCart`,
             {
               _id: item._id,
               count: 1,
@@ -82,7 +82,7 @@ const Menu = () => {
           .then((res) => {
             axios
               .get(
-                `https://fullstack-ecommerce-back.herokuapp.com/api/users/${currentUser._id}`
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
               )
               .then((res) => {
                 login(res.data);
