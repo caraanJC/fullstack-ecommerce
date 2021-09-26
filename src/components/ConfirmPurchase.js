@@ -37,7 +37,9 @@ const ConfirmPurchase = (props) => {
       axios
         .put(
           `https://fullstack-ecommerce-back.herokuapp.com/api/users/profile/changeLastAddress`,
-          { lastAddress }
+          {
+            lastAddress,
+          }
         )
         .then((res) => {
           axios

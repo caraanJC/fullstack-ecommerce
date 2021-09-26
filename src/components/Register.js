@@ -5,8 +5,9 @@ import Modal from './Modal';
 
 import '../styles/Register.css';
 import { actionCreators } from '../state';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { notify } from '../helper';
 
 const Register = (props) => {
   const initialState = {
@@ -15,9 +16,12 @@ const Register = (props) => {
     confirmPassword: '',
   };
   const [newUser, setNewUser] = useState(initialState);
-
+  const popup = useSelector((state) => state.popup);
   const dispatch = useDispatch();
-  const { setShowLogin } = bindActionCreators(actionCreators, dispatch);
+  const { setShowLogin, setupPopup } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
 
   const handleInputChange = (e) => {
     setNewUser({
@@ -26,25 +30,29 @@ const Register = (props) => {
     });
   };
 
-  const handleSubmitBtnClick = (e) => {
+  const handleSubmitBtnClick = async (e) => {
     e.preventDefault();
     if (newUser.password !== newUser.confirmPassword) {
       alert("Password don't match");
     } else {
-      axios
-        .post(
-          'https://fullstack-ecommerce-back.herokuapp.com/api/auth/register',
-          newUser
-        )
-        .then((res) => {
-          if (!res.data.error) {
-            alert(res.data.message);
+      try {
+        await axios
+          .post(
+            'https://fullstack-ecommerce-back.herokuapp.com/api/auth/register',
+            {
+              username: newUser.username,
+              password: newUser.password,
+              roles: ['user'],
+            }
+          )
+          .then((res) => {
+            notify(popup, setupPopup, 'Registration Successful', 'success');
             props.setShowRegister(false);
             setShowLogin(true);
-          } else {
-            alert(res.data.error);
-          }
-        });
+          });
+      } catch (error) {
+        notify(popup, setupPopup, 'Username exists', 'danger');
+      }
     }
   };
   return (

@@ -90,7 +90,9 @@ const Cart = () => {
     axios
       .put(
         `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/deleteCartItem`,
-        { _id: itemID }
+        {
+          _id: itemID,
+        }
       )
       .then((res) => {
         axios
@@ -137,7 +139,9 @@ const Cart = () => {
         } else {
           axios.put(
             `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/deleteCartItem`,
-            { _id: cartItem._id }
+            {
+              _id: cartItem._id,
+            }
           );
 
           return cartItem;

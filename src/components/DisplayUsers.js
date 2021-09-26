@@ -22,7 +22,7 @@ const DisplayUsers = (props) => {
   return (
     <div className='displayUsers'>
       {users
-        ?.filter((user) => user.username !== 'admin')
+        ?.filter((user) => !user.roles.includes('admin'))
         .filter(
           (user) => props.role === 'All' || user.roles.includes(props.role)
         )
