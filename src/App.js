@@ -39,7 +39,11 @@ function App() {
       currentUser.roles?.includes('admin')
     ) {
       axios
-        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/')
+        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/', {
+          headers: {
+            'auth-token': localStorage.getItem('token'),
+          },
+        })
         .then((res) => {
           setUsers(res.data);
         });

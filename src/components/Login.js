@@ -35,16 +35,17 @@ const Login = (props) => {
     });
   };
 
-  const handleSubmitBtnClick = (e) => {
+  const handleSubmitBtnClick = async (e) => {
     e.preventDefault();
-    axios
-      .post(
-        'https://fullstack-ecommerce-back.herokuapp.com/api/auth/login',
-        userLogin
-      )
-      .then((res) => {
-        if (!res.data.error) {
-          let user = res.data.data;
+    try {
+      await axios
+        .post(
+          'https://fullstack-ecommerce-back.herokuapp.com/api/auth/login',
+          userLogin
+        )
+        .then((res) => {
+          localStorage.setItem('token', res.data.token);
+          let user = res.data.user;
           delete user.password;
           delete user.__v;
           if (user.roles?.includes('suspended')) {
@@ -66,10 +67,10 @@ const Login = (props) => {
             setUserLogin(initialState);
             setShowLogin(false);
           }
-        } else {
-          notify(popup, setupPopup, `${res.data.error}`, 'danger');
-        }
-      });
+        });
+    } catch (error) {
+      notify(popup, setupPopup, `Wrong username or password`, 'danger');
+    }
   };
 
   const handleSuggestionClick = () => {

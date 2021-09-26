@@ -25,6 +25,7 @@ const Navbar = (props) => {
     emptyUsers();
     clearUserToEdit();
     logout();
+    localStorage.removeItem('token');
   };
 
   return (
