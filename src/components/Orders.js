@@ -25,7 +25,7 @@ const Orders = () => {
     if (currentUser.roles?.includes('user')) {
       axios
         .get(
-          `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
         )
         .then((res) => {
           let resData = res.data;
@@ -39,7 +39,7 @@ const Orders = () => {
       currentUser.roles?.includes('admin')
     ) {
       axios
-        .get('http://fullstack-ecommerce-back.herokuapp.com/api/users/')
+        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/')
         .then((res) => {
           setUsers(res.data);
         });

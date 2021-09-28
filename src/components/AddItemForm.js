@@ -43,7 +43,7 @@ const AddItemForm = (props) => {
     e.preventDefault();
     axios
       .post(
-        'http://fullstack-ecommerce-back.herokuapp.com/api/items/addItem',
+        'https://fullstack-ecommerce-back.herokuapp.com/api/items/addItem',
         {
           ...newItem,
           category: newItem.category ? newItem.category : newItem.newCategory,
@@ -59,7 +59,7 @@ const AddItemForm = (props) => {
 
         setNewItem(initialState);
         axios
-          .get('http://fullstack-ecommerce-back.herokuapp.com/api/items')
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items')
           .then((res) => {
             setItems(res.data);
             props.setShowAddForm(false);

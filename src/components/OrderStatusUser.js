@@ -16,7 +16,7 @@ const OrderStatusUser = (props) => {
   const handleCancelOrder = (order) => {
     axios
       .get(
-        `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
       )
       .then((res) => {
         if (
@@ -25,7 +25,7 @@ const OrderStatusUser = (props) => {
         ) {
           axios
             .put(
-              `http://fullstack-ecommerce-back.herokuapp.com/api/users/order/cancelOrder`,
+              `https://fullstack-ecommerce-back.herokuapp.com/api/users/order/cancelOrder`,
               {
                 _id: order._id,
               }
@@ -33,7 +33,7 @@ const OrderStatusUser = (props) => {
             .then((res) => {
               axios
                 .get(
-                  `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
                 )
                 .then((res) => {
                   let resData = res.data;
@@ -57,7 +57,7 @@ const OrderStatusUser = (props) => {
           );
           axios
             .get(
-              `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+              `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
             )
             .then((res) => {
               let resData = res.data;

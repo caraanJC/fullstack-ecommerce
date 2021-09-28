@@ -28,14 +28,14 @@ const Menu = () => {
     notify(popup, setupPopup, `${item.name} has been deleted`, 'success');
     axios
       .delete(
-        `http://fullstack-ecommerce-back.herokuapp.com/api/items/deleteItem/${item._id}`,
+        `https://fullstack-ecommerce-back.herokuapp.com/api/items/deleteItem/${item._id}`,
         {
           headers: { 'auth-token': localStorage.getItem('token') },
         }
       )
       .then((res) => {
         axios
-          .get('http://fullstack-ecommerce-back.herokuapp.com/api/items')
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items')
           .then((res) => {
             setItems(res.data);
           });
@@ -54,7 +54,7 @@ const Menu = () => {
         // increase count only
         axios
           .put(
-            `http://fullstack-ecommerce-back.herokuapp.com/api/users/cart/increaseCount`,
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/increaseCount`,
             {
               _id: item._id,
               count: 1,
@@ -63,7 +63,7 @@ const Menu = () => {
           .then((res) => {
             axios
               .get(
-                `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
               )
               .then((res) => {
                 let resData = res.data;
@@ -76,7 +76,7 @@ const Menu = () => {
         // add to cart
         axios
           .put(
-            `http://fullstack-ecommerce-back.herokuapp.com/api/users/cart/addToCart`,
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/addToCart`,
             {
               _id: item._id,
               count: 1,
@@ -85,7 +85,7 @@ const Menu = () => {
           .then((res) => {
             axios
               .get(
-                `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
               )
               .then((res) => {
                 login(res.data);

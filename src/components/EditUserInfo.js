@@ -25,7 +25,7 @@ const EditUserInfo = (props) => {
     props.setEditProfile(false);
 
     await axios.put(
-      `http://fullstack-ecommerce-back.herokuapp.com/api/users/profile/editProfile`,
+      `https://fullstack-ecommerce-back.herokuapp.com/api/users/profile/editProfile`,
       editUser,
       {
         headers: { 'auth-token': localStorage.getItem('token') },
@@ -34,7 +34,7 @@ const EditUserInfo = (props) => {
 
     await axios
       .get(
-        `http://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+        `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
         {
           headers: { 'auth-token': localStorage.getItem('token') },
         }

@@ -38,7 +38,7 @@ const EditItemForm = () => {
     e.preventDefault();
     axios
       .put(
-        'http://fullstack-ecommerce-back.herokuapp.com/api/items/editItem',
+        'https://fullstack-ecommerce-back.herokuapp.com/api/items/editItem',
         updatedItem,
         {
           headers: {
@@ -54,7 +54,7 @@ const EditItemForm = () => {
           'success'
         );
         axios
-          .get('http://fullstack-ecommerce-back.herokuapp.com/api/items/')
+          .get('https://fullstack-ecommerce-back.herokuapp.com/api/items/')
           .then((res) => {
             setItems(res.data);
 
