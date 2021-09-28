@@ -25,7 +25,8 @@ const Orders = () => {
     if (currentUser.roles?.includes('user')) {
       axios
         .get(
-          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+          { headers: { 'auth-token': localStorage.getItem('token') } }
         )
         .then((res) => {
           let resData = res.data;
@@ -39,7 +40,9 @@ const Orders = () => {
       currentUser.roles?.includes('admin')
     ) {
       axios
-        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/')
+        .get('https://fullstack-ecommerce-back.herokuapp.com/api/users/', {
+          headers: { 'auth-token': localStorage.getItem('token') },
+        })
         .then((res) => {
           setUsers(res.data);
         });
