@@ -58,12 +58,18 @@ const Menu = () => {
             {
               _id: item._id,
               count: 1,
+            },
+            {
+              headers: { 'auth-token': localStorage.getItem('token') },
             }
           )
           .then((res) => {
             axios
               .get(
-                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+                {
+                  headers: { 'auth-token': localStorage.getItem('token') },
+                }
               )
               .then((res) => {
                 let resData = res.data;
@@ -80,12 +86,18 @@ const Menu = () => {
             {
               _id: item._id,
               count: 1,
+            },
+            {
+              headers: { 'auth-token': localStorage.getItem('token') },
             }
           )
           .then((res) => {
             axios
               .get(
-                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+                {
+                  headers: { 'auth-token': localStorage.getItem('token') },
+                }
               )
               .then((res) => {
                 login(res.data);
