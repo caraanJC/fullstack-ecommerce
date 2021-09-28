@@ -32,12 +32,18 @@ const Cart = () => {
         {
           _id: itemID,
           count: 1,
+        },
+        {
+          headers: {
+            'auth-token': localStorage.getItem('token'),
+          },
         }
       )
       .then((res) =>
         axios
           .get(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+            { headers: { 'auth-token': localStorage.getItem('token') } }
           )
           .then((res) => {
             let resData = res.data;
@@ -55,12 +61,18 @@ const Cart = () => {
         {
           _id: itemID,
           count: -1,
+        },
+        {
+          headers: {
+            'auth-token': localStorage.getItem('token'),
+          },
         }
       )
       .then((res) =>
         axios
           .get(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+            { headers: { 'auth-token': localStorage.getItem('token') } }
           )
           .then((res) => {
             let resData = res.data;
@@ -75,6 +87,9 @@ const Cart = () => {
                 `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/deleteCartItem`,
                 {
                   _id: itemID,
+                },
+                {
+                  headers: { 'auth-token': localStorage.getItem('token') },
                 }
               );
               resData.cartItems = resData.cartItems?.filter(
@@ -92,12 +107,16 @@ const Cart = () => {
         `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/deleteCartItem`,
         {
           _id: itemID,
+        },
+        {
+          headers: { 'auth-token': localStorage.getItem('token') },
         }
       )
       .then((res) => {
         axios
           .get(
-            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+            `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+            { headers: { 'auth-token': localStorage.getItem('token') } }
           )
           .then((res) => {
             let resData = res.data;
