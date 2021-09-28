@@ -39,12 +39,14 @@ const ConfirmPurchase = (props) => {
           `https://fullstack-ecommerce-back.herokuapp.com/api/users/profile/changeLastAddress`,
           {
             lastAddress,
-          }
+          },
+          { headers: { 'auth-token': localStorage.getItem('token') } }
         )
         .then((res) => {
           axios
             .get(
-              `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+              `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+              { headers: { 'auth-token': localStorage.getItem('token') } }
             )
             .then((res) => {
               let resData = res.data;
@@ -56,7 +58,8 @@ const ConfirmPurchase = (props) => {
             .then((res) => {
               axios
                 .put(
-                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/emptyCart`
+                  `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/emptyCart`,
+                  { headers: { 'auth-token': localStorage.getItem('token') } }
                 )
                 .then((res) => {
                   axios
@@ -68,12 +71,22 @@ const ConfirmPurchase = (props) => {
                         userID: currentUser._id,
                         date: new Date(Date.now()),
                         address: currentUser[currentUser.lastAddress],
+                      },
+                      {
+                        headers: {
+                          'auth-token': localStorage.getItem('token'),
+                        },
                       }
                     )
                     .then((res) =>
                       axios
                         .get(
-                          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`
+                          `https://fullstack-ecommerce-back.herokuapp.com/api/users/currentUser`,
+                          {
+                            headers: {
+                              'auth-token': localStorage.getItem('token'),
+                            },
+                          }
                         )
                         .then((res) => {
                           let resData = res.data;
