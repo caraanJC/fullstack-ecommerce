@@ -59,6 +59,7 @@ const ConfirmPurchase = (props) => {
               axios
                 .put(
                   `https://fullstack-ecommerce-back.herokuapp.com/api/users/cart/emptyCart`,
+                  {},
                   { headers: { 'auth-token': localStorage.getItem('token') } }
                 )
                 .then((res) => {
